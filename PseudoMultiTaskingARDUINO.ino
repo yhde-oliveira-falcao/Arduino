@@ -17,38 +17,11 @@ struct buttonPin { //Just the buttonPin variables. =============================
   unsigned long lastDebounceTime;
   unsigned long debounceDelay;
 
-  int buttonFunc(){
-    int reading = digitalRead(buttonPin);
-    if (reading != lastButtonState) {
-      lastDebounceTime = millis();
-    }
-    if ((millis() - lastDebounceTime) > debounceDelay) {
-      if (reading != buttonState) {
-        buttonState = reading;
-        if (buttonState == HIGH) {
-          stater = !stater; //----------------
-          counter++;
-        }
-      }
-    }
-    lastButtonState = reading;
-    return stater;
-  };
-}; //THIS FUNCTION GOES TO THE LIBRARY =============================================   END 1
 
 
-struct Timer{ //THIS FUNCTION GOES TO THE LIBRARY =============================================   BEGIN 2
-  unsigned long previousMillis = 0;
-  bool timer(long timespan) {  
-    bool result = false;
-    unsigned long currentMillis = millis(); 
-    if (currentMillis - previousMillis >= timespan) {
-      previousMillis = currentMillis;
-      result = true;
-    } 
-    return result;
-  }  
-};//THIS FUNCTION GOES TO THE LIBRARY =============================================   END 2
+//HIDDEN PARTS
+  
+  //HIDDEN PARTS
 
 struct Timer ledtimer;
 
